@@ -1,18 +1,19 @@
 package com.cisco.springcrud.service;
 
+import com.cisco.springcrud.dto.EmployeeDTO;
 import com.cisco.springcrud.entity.Employee;
 
 import java.util.List;
 
 public interface EmployeeService {
 
-    List<Employee> findAllEmployees();
+    List<EmployeeDTO> findAllEmployees();
 
-    Employee findEmployee(Long id);
+    EmployeeDTO findEmployee(Long id);
 
-    Employee updateEmployee(Long id, Employee emp);
+    EmployeeDTO updateEmployee(Long id, EmployeeDTO emp);
 
-    Employee saveEmployee(Employee emp);
+    EmployeeDTO saveEmployee(EmployeeDTO emp);
 
     void deleteEmployee(Long id);
 }

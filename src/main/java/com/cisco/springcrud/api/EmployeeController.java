@@ -1,6 +1,6 @@
 package com.cisco.springcrud.api;
 
-import com.cisco.springcrud.entity.Employee;
+import com.cisco.springcrud.dto.EmployeeDTO;
 import com.cisco.springcrud.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,25 +19,25 @@ public class EmployeeController {
 
     /* get all employees */
     @GetMapping
-    public List<Employee> getAllEmployees() {
+    public List<EmployeeDTO> getAllEmployees() {
         return employeeService.findAllEmployees();
     }
 
     /* get employee by id */
     @GetMapping("/{id}")
-    public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
+    public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable Long id) {
         return ResponseEntity.ok(employeeService.findEmployee(id));
     }
 
     /* update an employee */
     @PutMapping("/{id}")
-    public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee emp) {
+    public ResponseEntity<EmployeeDTO> updateEmployee(@PathVariable Long id, @RequestBody EmployeeDTO emp) {
         return ResponseEntity.ok(employeeService.updateEmployee(id, emp));
     }
 
     /* create an employee */
     @PostMapping
-    public Employee createEmployee(@RequestBody Employee employee) {
+    public EmployeeDTO createEmployee(@RequestBody EmployeeDTO employee) {
         return employeeService.saveEmployee(employee);
     }
 
